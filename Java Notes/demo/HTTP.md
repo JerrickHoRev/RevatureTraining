@@ -9,6 +9,11 @@ times. It is a request/response system that gurantees a response for every reque
 - verb
     - the "verb" of an http request provides context for what you as the requester are trying to accomplish
     with your http request
+        - GET: the requester wants to "get" some kind of information
+        - Post: typically used when the request wants to create some kind of entry or provide new information to the web application
+        - PUT: typically used when the requester wants to update ALL of some resource handled by the web application
+        - PATCH: typically when the requester wants to update SOME of a resource handled by the web application
+        - DELETE: typically used when the requester wants to delete some resource handled by the web application
 
 You also should be familiar with the following components of an http response:
 - body
@@ -22,3 +27,15 @@ You also should be familiar with the following components of an http response:
         - 400 is user error (clientside error)
         - 500 is server error (the developer messed up)
             - 500 is BAD: you do not want 500 status codes being returned to your users
+
+# JSON
+Javascript Object Notation (JSON) is one of the most popular ways of formatting information in http requests
+(really for any sort of web based communication).
+```json
+{
+    "keyOne":"Vaolue one",
+    "kyeTwo":2,
+    "keyThree":true
+}
+```
+jsons accept three data types: strings, numbers, and booleans.
