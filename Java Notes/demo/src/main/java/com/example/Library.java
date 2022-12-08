@@ -52,7 +52,22 @@ public class Library {
             ctx.status(200);
         });
 
+        app.put("/book/(index)", ctx -> {
+            int index = Integer.parseInt(ctx.pathParam("index"));
+            Book updatedBook = ctx.bodyAsClass(Book.class);
+            library.set(index, updatedBook);
+            ctx.json(library.get(index));
+            ctx.status(200);
+        });
+
+        app.delete("/book/{index}", ctx -> {
+            int index = Integer.parseInt(ctx.pathParam("index"));
+            library.remove(index);
+            ctx.status(200);
+        });
+
         app.start();
+
     }
 
 }
