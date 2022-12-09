@@ -3,10 +3,16 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DebugGraphics;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.javalin.Javalin;
 
 public class Library {
 
+    public static Logger Logger = LoggerFactory.getLogger(Library.class);
     /*
      * notice I did not add an access modifier: this meanas the variable is given
      * the deafult
@@ -15,6 +21,13 @@ public class Library {
     static List<Book> library = new ArrayList<>();
 
     public static void main(String[] args) {
+
+        Logger.trace("This log was created at the trace level");
+        Logger.debug("This log was created at the debug level");
+        Logger.info("Application starting");
+        Logger.warn("This log was created at the warn level");
+        Logger.error("This log was created at the error level");
+
         Book startingBook = new Book();
         startingBook.setTitle("The Fellowship of the Ring");
         startingBook.setAuthor("J. R. R. Tolkien");
